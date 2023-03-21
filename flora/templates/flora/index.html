@@ -1,0 +1,303 @@
+<!DOCTYPE HTML>
+<body lang="en">
+
+<head>
+    <title>FLORA</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'flora/css/main.css' %}">
+    <noscript>
+        <link rel="stylesheet" href="{% static 'flora/css/noscript.css' %}">
+    </noscript>
+</head>
+
+<body class="landing is-preload">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <h1><a href="{% url 'flora:index' %}">FLORALOVELY</a></h1>
+        <!-- Menu -->
+        <nav id="nav">
+            <ul>
+                <li class="special">
+                    <a href="#menu" class="menuToggle"><span>Меню</span></a>
+                    <div id="menu">
+                        {% if menu_list %}
+                            <ul>
+                                {% for k, v in menu_list.items %}
+                                    <li><a href="/{{ k }}">{{ v }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>No menu items are available.</p>
+                        {% endif %}
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner -->
+    <section id="banner">
+        <div class="inner">
+            <h2>
+                <img src="{% static 'flora/images/logo.svg' %}" style="margin: 20px" alt="LOGO">
+            </h2>
+            <p>
+                откройте для себя<br/>
+                сайт по подбору ухода<br/>
+                за растениями
+            </p>
+        </div>
+        <a href="#two" class="more scrolly">Узнать больше</a>
+    </section>
+
+    <!-- Two -->
+    <section id="two" class="wrapper alt style2">
+        <section class="spotlight">
+            <div class="image">
+                <img src="{% static 'flora/images/pic01.jpg' %}" alt="pic01">
+            </div>
+            <div class="content">
+                <h2>Комнатные растения</h2>
+                <p style="text-align: justify">Уход за комнатными растениями — приятное занятие, которое может
+                    превратиться в настоящее хобби.
+                    Существует несколько важных правил, которые позволяют содержать домашний садик в порядке и красоте
+                    (и они под силу не только профессионалам). Вам осталось прочитать <a href="{% url 'flora:houseplants' %}">статью</a>
+                    и вооружиться терпением:
+                    потребуется время, чтобы ваша герань расцвела в полную мощь, но ожидание того стоит! </p>
+            </div>
+        </section>
+
+        <section class="spotlight">
+            <div class="image">
+                <img src="{% static 'flora/images/pic02.jpg' %}" alt="pic02">
+            </div>
+            <div class="content">
+                <h2>Уличные растения</h2>
+                <p style="text-align: justify">
+                    Выращивание растений и особенно цветов неизменно приносит удовольствие человеку, взявшемуся за это
+                    дело. Не всегда и не сразу это может получиться. Бывают и разочарования. Чтобы их было меньше, нужна
+                    достоверная информация о растениях. </p>
+            </div>
+        </section>
+
+        <section class="spotlight">
+            <div class="image">
+                <img src="{% static 'flora/images/pic03.jpg' %}" alt="pic03">
+            </div>
+            <div class="content">
+                <h2>Букеты</h2>
+                <p style="text-align: justify">
+                    Получить в подарок букет — это всегда счастье! Хочется, чтобы цветы дольше оставались свежими? Мы
+                    знаем, как это сделать.
+                </p>
+            </div>
+        </section>
+
+{#        <div style="display: flex; justify-content: center; padding: 30px">#}
+{#            <iframe width="560" height="315" src="https://www.youtube.com/embed/p1pHzYbfOnE"#}
+{#                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;#}
+{#									clipboard-write; encrypted-media; gyroscope; picture-in-picture"#}
+{#                    allowfullscreen></iframe>#}
+{#        </div>#}
+
+        <div>
+            <div class="slideshow-container">
+
+                <!-- Full-width images with number and caption text -->
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="{% static 'flora/images/1.jpg' %}" alt="1" class="imgslider">
+                    <div class="text">Хризантемы</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="{% static 'flora/images/2.jpg' %}" alt="2" class="imgslider">
+                    <div class="text">Цветение вишни</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="{% static 'flora/images/3.jpg' %}" alt="3" class="imgslider">
+                    <div class="text">Тюльпаны</div>
+                </div>
+
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+
+            <br>
+            <!-- The dots/circles -->
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="copyright">
+            <li>&copy; Покидова Алина</li>
+            <li>Михайлов Илья</li>
+            <li>Сигусов Виталий</li>
+            <li>2022-2023</li>
+        </ul>
+    </footer>
+
+</div>
+</body>
+
+<style>
+    * {
+        box-sizing: border-box
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+        max-width: 33.3%;
+        position: relative;
+        margin: auto;
+    }
+
+    /* Hide the images by default */
+    .mySlides {
+        display: none;
+    }
+
+    .imgslider {
+        width: 100%;
+    }
+
+    /* Next & previous buttons */
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover, .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Caption text */
+    .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+    .active, .dot:hover {
+        background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+        from {
+            opacity: .4
+        }
+        to {
+            opacity: 1
+        }
+    }
+</style>
+
+<!-- Scripts -->
+<script type="text/javascript" src="{% static 'flora/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/jquery.scrollex.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/jquery.scrolly.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/browser.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/breakpoints.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/util.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/main.js' %}"></script>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GOBA Project</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+
+{% if latest_question_list %}
+    <ul>
+        {% for question in latest_question_list %}
+            <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+            {#            <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>#}
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+<script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+{#<script type="text/javascript">#}
+{#{#            $.get('{% url "polls:detail" %}', function(data) {#}
+{#{#                var ctx = $("#myChart").get(0).getContext("2d");#}
+{#{#                new Chart(ctx, {#}
+{#{#                    type: 'line', data: data#}
+{#{#                });#}
+{#{#            });#}
+{#{#</script>#}
+<script>
+    $(document).ready(function () {
+        let ctx = document.getElementById('myChart').getContext('2d');
+        let myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: [{%for question in latest_question_list%}'{{question.question_text}}',{%endfor%}],
+                datasets: [{
+                    label: '# of users',
+                    data: [{%for question in latest_question_list%}{{question.id}}, {%endfor%}],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    });
+</script>
+
+<canvas id="myChart" width="400" height="100"></canvas>
+
+</body>
+</html>

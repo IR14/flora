@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <title>FLORA</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'flora/css/main.css' %}">
+    <noscript>
+        <link rel="stylesheet" href="{% static 'flora/css/noscript.css' %}">
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="{% url 'flora:index' %}">FLORALOVELY</a></h1>
+        <!-- Menu -->
+        <nav id="nav">
+            <ul>
+                <li class="special">
+                    <a href="#menu" class="menuToggle"><span>Меню</span></a>
+                    <div id="menu">
+                        {% if menu_list %}
+                            <ul>
+                                {% for k, v in menu_list.items %}
+                                    <li><a href="/{{ k }}">{{ v }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>No menu items are available.</p>
+                        {% endif %}
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <article id="main2">
+        <header>
+            <h2>Букеты</h2>
+            <p>Советы по композиции цветов</p>
+        </header>
+
+        <section class="wrapper style5">
+            <div class="inner">
+                <section>
+                    <h4>1 СНИМИТЕ УПАКОВКУ</h4>
+                    <p class="paragraph">
+                        Красивое оформление букета — половина дизайна.
+                        Но когда композиция вручена, упаковку необходимо снять,
+                        чтобы не «душить» цветы и свободно за ними ухаживать.
+                        Удалите все ленты и бумагу.
+                    </p>
+
+                    <h4>2 ПОДГОТОВЬТЕ ВАЗУ</h4>
+                    <p class="paragraph">
+                        Чистая и продезинфицированная ваза — главное условие долгой жизни букета.
+                        Потому что чаще всего цветы гибнут именно из-за бактерий, попавших в питьевые сосуды.
+                        Тщательно промойте вазу от пыли и грязи.
+                    </p>
+
+                    <h4>3 ИСПОЛЬЗУЙТЕ ЧИСТУЮ ВОДУ</h4>
+                    <p class="paragraph">
+                        Бактерии в воде столь же губительны, как и в вазе.
+                        Используйте только чистую или фильтрованную холодную воду,
+                        добавив в нее несколько капель дезинфицирующего средства типа Domestos.
+                        Не волнуйтесь, цветам это не навредит.
+                    </p>
+
+                    <h4>4 УДАЛИТЕ ЛИСТЬЯ</h4>
+                    <p class="paragraph">
+                        Все, что окажется под водой, будет гнить.
+                        Поэтому сразу очистите стебель от лишних листьев.
+                    </p>
+
+                    <h4>5 ПОДРЕЖЬТЕ СТЕБЛИ</h4>
+                    <p class="paragraph">
+                        На воздухе сосуды в стебле быстро закупориваются,
+                        и цветок теряет способность впитывать воду.
+                        Перед тем, как поставить цветы в вазу,
+                        подрежьте каждый острым ножом под углом не больше 45°.
+                        Чем длиннее срез, тем лучше цветок будет пить.
+                        <br><br>
+                        Для растений с толстым и жестким стеблем рекомендуем сделать дополнительный вертикальный разрез.
+                    <ol type="1">
+                        <li>Всегда делайте срез над сочленнением стебля</li>
+                        <li>Нож обязательно должен быть чистым</li>
+                        <li>Никогда не подрезайте стебли ножницами — это сминает сосуды</li>
+                    </ol>
+                    </p>
+
+                    <h4>6 ЕЖЕДНЕВНО МЕНЯЙТЕ ВОДУ</h4>
+                    <p class="paragraph">
+                        Это простое правило ощутимо продлевает жизнь вашего букета.
+                        Не забывайте каждый день менять воду и обновлять срез каждого цветка.
+                    </p>
+
+                    <h4>7 ИСКУПАЙТЕ ЦВЕТЫ В ХОЛОДНОЙ ВАННЕ</h4>
+                    <p class="paragraph">
+                        Если вы заметили первые признаки увядания, подрежьте
+                        цветы и оставьте их на ночь в чистой ванне с очень холодной водой.
+                        Наутро они заметно посвежеют.
+                    </p>
+
+                    <h4>8 ПРАВИЛЬНО РАЗМЕСТИТЕ БУКЕТ</h4>
+                    <p class="paragraph">
+                        Держите ваши цветы вдали от отопительных приборов, сквозняков,
+                        прямых солнечных лучей и ваз с фруктами.
+                        Желательно, чтобы в помещении не было душно.
+                    </p>
+                </section>
+
+                <hr>
+
+                <section>
+                    <h4>КОГДА УВЯНЕТ ЦВЕТОК</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Растение</th>
+                                    <th>Описание</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>Российская роза</td>
+                                <td>Неделя</td>
+                            </tr>
+                            <tr>
+                                <td>Эквадорская роза</td>
+                                <td>порядка двух недель</td>
+                            </tr>
+                            <tr>
+                                <td>Нарциссы</td>
+                                <td>не вянут до 8 дней</td>
+                            </tr>
+                            <tr>
+                                <td>Герберы</td>
+                                <td>растение нуждается в интенсивном уходе, при котором может не увядать неделю.</td>
+                            </tr>
+                            <tr>
+                                <td>Пионы, лилии, ромашки</td>
+                                <td>продержатся порядка 10 дней.</td>
+                            </tr>
+                            <tr>
+                                <td>Ирисы</td>
+                                <td>цветок продолжает обновляться даже срезанным, распускаются все новые соцветия.
+                                    Срок жизни букета порядка 10 дней</td>
+                            </tr>
+                            <tr>
+                                <td>Фрезии и гиацинты</td>
+                                <td>при хорошем уходе продержатся 2 недели</td>
+                            </tr>
+                            <tr>
+                                <td>Орхидеи</td>
+                                <td>стойкое растение сохранит свежесть две с половиной недели</td>
+                            </tr>
+                            <tr>
+                                <td>Гвоздики</td>
+                                <td>если не размещать по соседству с другими видами цветов, увядание начнется через 20
+                                    дней
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Хризантемы</td>
+                                <td>при правильном уходе процесс увядания даст о себе знать через 30 дней.
+                                    Используйте советы по уходу за букетом.
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </div>
+{#            <div style="display: flex; justify-content: center; padding: 30px">#}
+{#                <iframe width="560" height="315" src="https://www.youtube.com/embed/krmBanyP1qQ"#}
+{#                        title="YouTube video player"#}
+{#                        frameborder="0"#}
+{#                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"#}
+{#                        allowfullscreen></iframe>#}
+{#            </div>#}
+        </section>
+    </article>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="copyright">
+            <li>&copy; Покидова Алина</li>
+            <li>Михайлов Илья</li>
+            <li>Сигусов Виталий</li>
+            <li>2022-2023</li>
+        </ul>
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+<script type="text/javascript" src="{% static 'flora/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/jquery.scrollex.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/jquery.scrolly.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/browser.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/breakpoints.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/util.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/main.js' %}"></script>
+
+<style>
+    .paragraph {
+        text-align: justify;
+    }
+</style>
+
+</body>
+</html>
