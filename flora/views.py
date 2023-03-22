@@ -9,6 +9,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 
+from roboflow import Roboflow
 from django.http import HttpResponse
 from django.template import loader
 
@@ -18,6 +19,7 @@ from django.shortcuts import render
 
 from .forms import FeedbackForm
 
+
 menu_items = {
     "index": "Главная",
     "houseplants": "Комнатные растения",
@@ -25,7 +27,8 @@ menu_items = {
     "bouquets": "Букеты",
     "feedback": "Обратная связь",
     "login": "Личный кабинет",
-    "graphics": "Инфографика"
+    "graphics": "Инфографика",
+    "neuron": "Определить растение"
 }
 
 global_context = {
@@ -40,6 +43,14 @@ global_context = {
 
 def index(request):
     return render(request, 'flora/index.html', global_context)
+
+
+def neuron(request):
+    rf = Roboflow(api_key="sAA2PirCW9POEOYvCoWV")
+    project = rf.workspace("pridch-kirpich-xmkm9").project("flora-cm3ry")
+    model = project.version(2).model
+    model.predict("flora/images/TestFlower.png", confidence=40, overlap=30).save("prediction3.jpg")
+    return render(request, 'flora/neuron.html', global_context)
 
 
 def houseplants(request):
