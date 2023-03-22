@@ -28,6 +28,7 @@ menu_items = {
     "feedback": "Обратная связь",
     "login": "Личный кабинет",
     "graphics": "Инфографика",
+    "gallery": "Галерея",
     "neuron": "Определить растение"
 }
 
@@ -75,6 +76,10 @@ def street(request):
 
 def graphics(request):
     return render(request, 'flora/graphics.html', global_context)
+
+
+def gallery(request):
+    return render(request, 'flora/gallery.html', global_context)
 
 
 def feedback(request):

@@ -1,0 +1,375 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <title>FLORA</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'flora/css/main.css' %}">
+    <noscript>
+        <link rel="stylesheet" href="{% static 'flora/css/noscript.css' %}">
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="{% url 'flora:index' %}">FLORALOVELY</a></h1>
+        <!-- Menu -->
+        <nav id="nav">
+            <ul>
+                <li class="special">
+                    <a href="#menu" class="menuToggle"><span>Меню</span></a>
+                    <div id="menu">
+                        {% if menu_list %}
+                            <ul>
+                                {% for k, v in menu_list.items %}
+                                    <li><a href="/{{ k }}">{{ v }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>No menu items are available.</p>
+                        {% endif %}
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <article id="main6">
+        <header>
+            <h2>ГАЛЕРЕЯ</h2>
+        </header>
+
+        <section class="wrapper style5">
+            <div class="inner">
+            <div class="box alt">
+                    <div class="row gtr-50 gtr-uniform">
+                        <div class="col-12">
+                            <p class="paragraph"><mark>Винсент Ван Гог, Амброзиус Босхарт, Утагава Хиросигэ и Питер Корнелис Мондриан</mark> - все они художники,
+                                создавшие замечательные произведения искусства с изображением цветов. Эти художники были известны своими уникальными и самобытными
+                                стилями, которые они использовали, чтобы передать красоту и сущность цветов в своих работах.</p>
+                            <p class="paragraph">Знаменитая серия <mark>Ван Гога</mark> "Подсолнухи" - яркий пример его любви к природе и уникального стиля использования смелых
+                                и ярких красок для изображения красоты цветов. <mark>Босхарт</mark>, с другой стороны, был известным голландским художником-натюрмортом,
+                                специализировавшимся на цветочных композициях. Его сложные и детализированные произведения искусства были вдохновлены красотой садов
+                                Нидерландов.</p>
+                            <p class="paragraph">Японский художник <mark>Хиросигэ</mark> известен своими изображениями смены времен года в Японии, а его работы с цветами демонстрируют
+                                его мастерство в передаче сути мимолетной красоты природы. Наконец, <mark>Мондриан</mark>, пионер абстрактного искусства, создал потрясающие
+                                произведения, которые представляли цветы уникальным и нетрадиционным способом, используя геометрические формы и яркие цвета.</p>
+                            <p class="paragraph"> Несмотря на их разные стили и происхождение, всех этих художников объединяла общая любовь и понимание красоты цветов.
+                                Их произведения искусства с изображением цветов являются свидетельством их мастерства и креативности и продолжают вдохновлять и восхищать
+                                как энтузиастов искусства, так и любителей природы.</p>
+                        </div>
+                        <div class="col-12"><h4>Frans Mortelmans (BELGIAN, 1865-1936)</h4></div>
+                        <div class="col-3"><span class="image fit"><img src="{% static 'flora/images/gal1.jpg' %}"></span></div>
+                        <div class="col-3"><span class="image fit"><img src="{% static 'flora/images/gal2.jpg' %}"></span></div>
+                        <div class="col-3"><span class="image fit"><img src="{% static 'flora/images/gal3.jpg' %}"></span></div>
+                        <div class="col-3"><span class="image fit"><img src="{% static 'flora/images/gal4.jpg' %}"></span></div>
+                        <div class="col-12"><h4>Vincent van Gogh (Netherlands, 1853-1890)</h4></div>
+                        <div class="col-3"><span class="image fit"><img src="{% static 'flora/images/gal5.jpg' %}"></span></div>
+                        <div class="col-3"><span class="image fit"><img src="{% static 'flora/images/gal6.jpg' %}"></span></div>
+                        <div class="col-3"><span class="image fit"><img src="{% static 'flora/images/gal7.jpg' %}"></span></div>
+                        <div class="col-3"><span class="image fit"><img src="{% static 'flora/images/gal8.jpg' %}"></span></div>
+                        <div class="col-12"><h4>Ambrosius Bosschaert (Antwerp, 1573-1621)</h4></div>
+                        <div class="col-3"><span class="image fit"><img src="{% static 'flora/images/gal9.jpg' %}"></span></div>
+                        <div class="col-3"><span class="image fit"><img src="{% static 'flora/images/gal10.jpg' %}"></span></div>
+                        <div class="col-3"><span class="image fit"><img src="{% static 'flora/images/gal11.jpg' %}"></span></div>
+                        <div class="col-3"><span class="image fit"><img src="{% static 'flora/images/gal12.jpg' %}"></span></div>
+                        <div class="col-12"><h4>Utagawa Hiroshige (Japan, 1797-1858)</h4></div>
+                        <div class="col-3"><span class="image fit"><img src="{% static 'flora/images/gal13.jpg' %}"></span></div>
+                        <div class="col-3"><span class="image fit"><img src="{% static 'flora/images/gal14.jpg' %}"></span></div>
+                        <div class="col-3"><span class="image fit"><img src="{% static 'flora/images/gal15.jpg' %}"></span></div>
+                        <div class="col-3"><span class="image fit"><img src="{% static 'flora/images/gal16.jpg' %}"></span></div>
+                        <div class="col-12"><h4><span class="highlighted-text"> Pieter Cornelis Mondriaan</span> (Netherlands, 1872-1944)</h4></div>
+                        <div class="col-3"><span class="image fit"><img src="{% static 'flora/images/gal17.jpg' %}"></span></div>
+                        <div class="col-3"><span class="image fit"><img src="{% static 'flora/images/gal18.jpg' %}"></span></div>
+                        <div class="col-3"><span class="image fit"><img src="{% static 'flora/images/gal19.jpg' %}"></span></div>
+                        <div class="col-3"><span class="image fit"><img src="{% static 'flora/images/gal20.jpg' %}"></span></div>
+                        <div class="col-12">
+                <p class="paragraph">На каждом слайде представлены различные произведения искусства. От смелых и красочных абстрактных
+                    картин до замысловатых карандашных рисунков, эти художники
+                    демонстрируют широкий спектр талантов и креативности. Просматривая слайд-шоу, обратите внимание на различные техники
+                    и средства, используемые каждым художником, а также на общие темы и эмоции, переданные в их работах. Являетесь ли вы
+                    любителем искусства или просто цените красоту творчества, мы надеемся, что это слайд-шоу вдохновит и порадует вас.</p>
+                </div>
+                    </div>
+            </div>
+            </div>
+
+            <div class="slideshow-container">
+                <!-- Full-width images with number and caption text -->
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 12</div>
+                    <img src="{% static 'flora/images/gal1.jpg' %}" alt="1" class="imgslider">
+                    <div class="text">FRANS MORTELMANS (BELGIAN, 1865-1936)</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 12</div>
+                    <img src="{% static 'flora/images/gal2.jpg' %}" alt="2" class="imgslider">
+                    <div class="text">FRANS MORTELMANS (BELGIAN, 1865-1936)</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 12</div>
+                    <img src="{% static 'flora/images/gal3.jpg' %}" alt="3" class="imgslider">
+                    <div class="text">FRANS MORTELMANS (BELGIAN, 1865-1936)</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">4 / 12</div>
+                    <img src="{% static 'flora/images/gal4.jpg' %}" alt="4" class="imgslider">
+                    <div class="text">FRANS MORTELMANS (BELGIAN, 1865-1936)</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">5 / 12</div>
+                    <img src="{% static 'flora/images/gal5.jpg' %}" alt="5" class="imgslider">
+                    <div class="text">VINCENT VAN GOGH (NETHERLANDS, 1853-1890)</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">6 / 12</div>
+                    <img src="{% static 'flora/images/gal6.jpg' %}" alt="6" class="imgslider">
+                    <div class="text">VINCENT VAN GOGH (NETHERLANDS, 1853-1890)</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">7 / 12</div>
+                    <img src="{% static 'flora/images/gal7.jpg' %}" alt="7" class="imgslider">
+                    <div class="text">VINCENT VAN GOGH (NETHERLANDS, 1853-1890)</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">8 / 12</div>
+                    <img src="{% static 'flora/images/gal8.jpg' %}" alt="8" class="imgslider">
+                    <div class="text">VINCENT VAN GOGH (NETHERLANDS, 1853-1890)</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">9 / 12</div>
+                    <img src="{% static 'flora/images/gal13.jpg' %}" alt="9" class="imgslider">
+                    <div class="text">UTAGAWA HIROSHIGE (JAPAN, 1797-1858)</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">10 / 12</div>
+                    <img src="{% static 'flora/images/gal14.jpg' %}" alt="10" class="imgslider">
+                    <div class="text">UTAGAWA HIROSHIGE (JAPAN, 1797-1858)</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">11 / 12</div>
+                    <img src="{% static 'flora/images/gal15.jpg' %}" alt="11" class="imgslider">
+                    <div class="text">UTAGAWA HIROSHIGE (JAPAN, 1797-1858)</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">12 / 12</div>
+                    <img src="{% static 'flora/images/gal16.jpg' %}" alt="12" class="imgslider">
+                    <div class="text">UTAGAWA HIROSHIGE (JAPAN, 1797-1858)</div>
+                </div>
+
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+            <!-- The dots/circles -->
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </section>
+    </article>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="copyright">
+            <li>&copy; Покидова Алина</li>
+            <li>Михайлов Илья</li>
+            <li>Сигусов Виталий</li>
+            <li>2022-2023</li>
+        </ul>
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+<script type="text/javascript" src="{% static 'flora/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/jquery.scrollex.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/jquery.scrolly.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/browser.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/breakpoints.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/util.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/main.js' %}"></script>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+
+</script>
+
+<style>
+
+    mark {
+        -webkit-animation: 1.5s highlight 1.5s 1 normal forwards;
+        animation: 1.5s highlight 1.5s 1 normal forwards;
+        background-color: none;
+        background: linear-gradient(90deg, #a173727a 44%, rgba(255, 255, 255, 0) 50%);
+        background-size: 200% 100%;
+        background-position: 100% 0;
+    }
+
+    @-webkit-keyframes highlight {
+      to {
+        background-position: 0 0;
+      }
+    }
+
+    @keyframes highlight {
+      to {
+        background-position: 0 0;
+      }
+    }
+
+    .paragraph {
+        text-align: justify;
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+        max-width: 60%;
+        position: relative;
+        margin: auto;
+    }
+
+    /* Hide the images by default */
+    .mySlides {
+        display: none;
+    }
+
+    .imgslider {
+        width: 100%;
+    }
+
+    /* Next & previous buttons */
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover, .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Caption text */
+    .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+        background-color: #1d242a8f;
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+    .active, .dot:hover {
+        background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+        from {
+            opacity: .4
+        }
+        to {
+            opacity: 1
+        }
+    }
+
+</style>
+
+</body>
+</html>
