@@ -25,7 +25,8 @@ menu_items = {
     "bouquets": "Букеты",
     "feedback": "Обратная связь",
     "login": "Личный кабинет",
-    "graphics": "Инфографика"
+    "graphics": "Инфографика",
+    "gallery": "Галерея"
 }
 
 global_context = {
@@ -64,6 +65,10 @@ def street(request):
 
 def graphics(request):
     return render(request, 'flora/graphics.html', global_context)
+
+
+def gallery(request):
+    return render(request, 'flora/gallery.html', global_context)
 
 
 def feedback(request):
