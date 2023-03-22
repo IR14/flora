@@ -37,7 +37,8 @@ menu_items = {
     "login": "Личный кабинет",
     "graphics": "Инфографика",
     "gallery": "Галерея",
-    "neuron": "Определить растение"
+    "neuron": "Определить растение",
+    "graphics": "Графики и Диаграммы"
 }
 
 flower_species = {
@@ -144,3 +145,7 @@ def feedback(request):
 
     form = FeedbackForm()
     return render(request, 'flora/feedback.html', {'form': form} | global_context)
+
+
+def graphics(request):
+    return render(request, 'flora/graphics.html', global_context)
