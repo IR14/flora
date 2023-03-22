@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FLORA</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'flora/css/main.css' %}">
+    <noscript>
+        <link rel="stylesheet" href="{% static 'flora/css/noscript.css' %}">
+    </noscript>
+</head>
+<body class="is-preload">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+<div id="page-wrapper">
+
+    <header id="header">
+        <h1><a href="{% url 'flora:index' %}">FLORALOVELY</a></h1>
+        <!-- Menu -->
+        <nav id="nav">
+            <ul>
+                <li class="special">
+                    <a href="#menu" class="menuToggle"><span>Меню</span></a>
+                    <div id="menu">
+                        {% if menu_list %}
+                            <ul>
+                                {% for k, v in menu_list.items %}
+                                    <li><a href="/{{ k }}">{{ v }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>No menu items are available.</p>
+                        {% endif %}
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+<section class="hero-section">
+  <div class="card-grid">
+    <a class="card" href="#">
+      <div class="card__background" style="background-image: url('../../static/flora/images/calir.jpg')"></div>
+      <div class="card__content">
+        <p class="card__category">КАЛИР-КАНДА</p>
+        <h3 class="card__heading">Съев 1-2 листочка его, человек чувствует сытость на протяжении целой недели, несмотря на то, что в них нет никаких питательных веществ!</h3>
+      </div>
+    </a>
+    <a class="card" href="#">
+      <div class="card__background" style="background-image: url('../../static/flora/images/baobab.jpg')"></div>
+      <div class="card__content">
+        <p class="card__category">Баобаб</p>
+        <h3 class="card__heading">Самым быстрорастущим растением является баобаб. За сутки он может увеличиться на 0,75 – 0,9 метров в высоту.</h3>
+      </div>
+    </a>
+    <a class="card" href="#">
+      <div class="card__background" style="background-image: url('../../static/flora/images/push.jpg')"></div>
+      <div class="card__content">
+        <p class="card__category">Пушечное дерево</p>
+        <h3 class="card__heading">Самым шумным деревом считается пушечное и произрастает оно только в Гвинее.</h3>
+      </div>
+    </a>
+    <a class="card" href="#">
+      <div class="card__background" style="background-image: url('../../static/flora/images/berez.jpg')"></div>
+      <div class="card__content">
+        <p class="card__category">Побеги берёзы</p>
+        <h3 class="card__heading">Самые холодостойкие растения – это побеги тополя и березы. Их можно охладить до -196 градусов.</h3>
+      </div>
+    </a>
+  </div>
+</section>
+<section class="hero-section">
+  <div class="card-grid">
+    <a class="card" href="#">
+      <div class="card__background" style="background-image: url('../../static/flora/images/copa.jpg')"></div>
+      <div class="card__content">
+        <p class="card__category">Копаифера</p>
+        <h3 class="card__heading">В Бразилии растет дерево, сок которого используется как дизельное топливо.</h3>
+      </div>
+    </a>
+    <a class="card" href="#">
+      <div class="card__background" style="background-image: url('../../static/flora/images/orch.jpg')"></div>
+      <div class="card__content">
+        <p class="card__category">Тигровая орхидея</p>
+        <h3 class="card__heading">Самой большой орхидеей растительного мира считается Тигровая орхидея.</h3>
+      </div>
+    </a>
+    <a class="card" href="#">
+      <div class="card__background" style="background-image: url('../../static/flora/images/oduv.jpg')"></div>
+      <div class="card__content">
+        <p class="card__category">Белый одуванчик</p>
+        <h3 class="card__heading">Существуют и белые одуванчики, а не только желтые, какими мы привыкли их видеть.</h3>
+      </div>
+    </a>
+    <a class="card" href="#">
+      <div class="card__background" style="background-image: url('../../static/flora/images/agava.jpg')"></div>
+      <div class="card__content">
+        <p class="card__category">Агава</p>
+        <h3 class="card__heading">Мексика была названа в честь растения агава.</h3>
+      </div>
+    </a>
+  </div>
+</section>
+</div>
+
+<script type="text/javascript" src="{% static 'flora/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/jquery.scrollex.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/jquery.scrolly.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/browser.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/breakpoints.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/util.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/main.js' %}"></script>
+
+<style>
+    :root{
+  --background-dark: #2d3548;
+  --text-light: rgb(255, 255, 255);
+  --text-lighter: rgba(255,255,255,0.9);
+  --spacing-s: 8px;
+  --spacing-m: 16px;
+  --spacing-l: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 64px;
+  --width-container: 1200px;
+}
+
+*{
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+body{
+  height: 100%;
+}
+
+.hero-section{
+  align-items: flex-start;
+  background-image: linear-gradient(15deg, #f3ffed 0%, #f3ffed 150%);
+  display: flex;
+  min-height: 100%;
+  justify-content: center;
+  padding: var(--spacing-xxl) var(--spacing-l);
+}
+
+.card-grid{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-column-gap: var(--spacing-l);
+  grid-row-gap: var(--spacing-l);
+  max-width: var(--width-container);
+  width: 100%;
+}
+
+@media(min-width: 540px){
+  .card-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(min-width: 960px){
+  .card-grid{
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card{
+  list-style: none;
+  position: relative;
+}
+
+.card:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card__background{
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--spacing-l);
+  bottom: 0;
+  filter: brightness(0.75) saturate(1.2) contrast(0.85);
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform-origin: center;
+  trsnsform: scale(1) translateZ(0);
+  transition:
+    filter 200ms linear,
+    transform 200ms linear;
+}
+
+.card:hover .card__background{
+  transform: scale(1.05) translateZ(0);
+}
+
+.card-grid:hover > .card:not(:hover) .card__background{
+  filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+}
+
+.card__content{
+  left: 0;
+  padding: var(--spacing-l);
+  position: absolute;
+  top: 0;
+}
+
+.card__category{
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-s);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.card__heading{
+  color: var(--text-lighter);
+  font-size: 0.9rem;
+  text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+  line-height: 1.7;
+  font-weight: lighter;
+  {#word-spacing: 100vw;#}
+}
+
+.card__text{
+    font-size: 0.9rem;
+}
+</style>
+
+</body>
+</html>
+

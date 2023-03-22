@@ -4247,7 +4247,79 @@ body.is-mobile #main5 > header {
 
 }
 
-body.is-mobile #main4 > header {
+body.is-mobile #main6 > header {
+	background-attachment: scroll;
+}
+
+/* Main6 gallery */
+
+#main7 > header {
+	padding: 12em 0 10em 0 ;
+	background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0)), url("../images/article.jpg");
+	background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0)), url("../images/article.jpg");
+	background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0)), url("../images/article.jpg");
+	background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0)), url("../images/article.jpg");
+	background-attachment: fixed;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
+}
+
+#main7 > header h2 {
+	font-size: 1.75em;
+	margin: 0 0 0.5em 0;
+}
+
+#main7 > header p {
+	color: inherit;
+	letter-spacing: 0.225em;
+	text-transform: uppercase;
+	top: 0;
+}
+
+#main7 > header p a {
+	color: inherit;
+}
+
+@media screen and (max-width: 1680px) {
+
+	#main7> header {
+		padding: 10em 0 8em 0 ;
+	}
+
+}
+
+@media screen and (max-width: 1280px) {
+
+	#main7 > header {
+		padding: 8em 3em 6em 3em ;
+	}
+
+}
+
+@media screen and (max-width: 980px) {
+
+	#main7 > header {
+		padding: 10em 3em 8em 3em ;
+	}
+
+}
+
+@media screen and (max-width: 736px) {
+
+	#main7 > header {
+		padding: 5em 3em 3em 3em ;
+	}
+
+	#main7 > header h2 {
+		font-size: 1.25em;
+		margin: 0 0 1em 0;
+	}
+
+}
+
+body.is-mobile #main7 > header {
 	background-attachment: scroll;
 }
 

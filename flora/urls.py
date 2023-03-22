@@ -16,4 +16,8 @@ urlpatterns = [
     # path('logout/', views.sign_out, name='logout'),
     # path('register/', views.sign_up, name='register'),
     path('gallery/', views.gallery, name='gallery'),
+    path('shop/', views.shop, name='shop'),
+    path('article/', views.article, name='article'),
+    path('test/', views.test, name='test'),
+    path('animation/', views.animation, name='animation')
 ]

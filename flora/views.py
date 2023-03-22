@@ -26,7 +26,11 @@ menu_items = {
     "feedback": "Обратная связь",
     "login": "Личный кабинет",
     "graphics": "Инфографика",
-    "gallery": "Галерея"
+    "gallery": "Галерея",
+    "shop": "Магазин",
+    "article": "Полезные статьи",
+    "test": "Интересные факты",
+    "animation": "animation"
 }
 
 global_context = {
@@ -55,6 +59,10 @@ def street(request):
     return render(request, 'flora/street.html', global_context)
 
 
+def test(request):
+    return render(request, 'flora/test.html', global_context)
+
+
 # def feedback(request):
 #     return render(request, 'flora/feedback.html', global_context)
 
@@ -69,6 +77,18 @@ def graphics(request):
 
 def gallery(request):
     return render(request, 'flora/gallery.html', global_context)
+
+
+def shop(request):
+    return render(request, 'flora/shop.html', global_context)
+
+
+def article(request):
+    return render(request, 'flora/article.html', global_context)
+
+
+def animation(request):
+    return render(request, 'flora/animation.html', global_context)
 
 
 def feedback(request):
