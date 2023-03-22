@@ -1,17 +1,21 @@
+import os
+import pickle
+import json
+import base64
+
+from PIL import Image
+
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.db.models import F, Count
 from django.views import generic
 from django.utils import timezone
-import os
+
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 
-#import environ
-
-from roboflow import Roboflow
 from django.http import HttpResponse
 from django.template import loader
 
@@ -19,8 +23,10 @@ from .models import Feedback
 
 from django.shortcuts import render
 
-from .forms import FeedbackForm
+from .forms import FeedbackForm, RecognitionForm
 
+ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
+WORK_DIR = os.path.join(ROOT_DIR, 'flora')
 
 menu_items = {
     "index": "Главная",
@@ -35,9 +41,31 @@ menu_items = {
     "graphics": "Графики и Диаграммы"
 }
 
+flower_species = {
+    'buddy rose': 'Гомфрена',
+    'lily': 'Лилия',
+    'parijat': 'Жасмин ночной',
+    'pink lily': 'Лилия розовая',
+    'pink rose': 'Роза розовая',
+    'red rose': 'Роза обыкновенная',
+    'red sadaful': 'Катарантус красный',
+    'sunflower': 'Подсолнечник',
+    'sunflower mini': 'Подсолнечник карликовый',
+    'water flower': 'Лотус',
+    'white rose': 'Роза белая',
+    'white lily': 'Лилия белая',
+    'white sadaful': 'Катарантус белый',
+    'winter flower': 'Подснежник',
+    'yellow lily': 'Лилия желтая'
+}
+
 global_context = {
     "menu_list": menu_items
 }
+
+
+model_path = os.path.join(WORK_DIR, 'model.sav')
+model = pickle.load(open(model_path, 'rb'))
 
 
 # class FeedbackView(generic.ListView):
@@ -50,7 +78,33 @@ def index(request):
 
 
 def neuron(request):
-    return render(request, 'flora/neuron.html', global_context)
+    img_path = os.path.join(WORK_DIR, 'test.jpg')
+
+    if request.method == 'POST':
+        form = RecognitionForm(request.POST, request.FILES)
+        if form.is_valid():
+            img_obj = request.FILES['image']
+
+            with open(img_path, 'wb+') as image_to_write:
+                for chunk in img_obj.chunks():
+                    image_to_write.write(chunk)
+
+            try:
+                prediction = model.predict(img_path).json()['predictions'][0]['class']
+                img_class = flower_species[prediction]
+            except IndexError:
+                img_class = None
+
+            with open(img_path, "rb") as image_to_read:
+                image_data = base64.b64encode(image_to_read.read()).decode('utf-8')
+
+            return render(request,
+                          'flora/neuron.html',
+                          {'form': form} | {'img_class': img_class, 'image': image_data} | global_context)
+    else:
+        form = RecognitionForm()
+
+    return render(request, 'flora/neuron.html', {'form': form} | global_context)
 
 
 def houseplants(request):
@@ -63,14 +117,6 @@ def bouquets(request):
 
 def street(request):
     return render(request, 'flora/street.html', global_context)
-
-
-# def feedback(request):
-#     return render(request, 'flora/feedback.html', global_context)
-
-
-# def registration(request):
-#     return render(request, 'flora/registration.html', global_context)
 
 
 def graphics(request):
@@ -100,26 +146,6 @@ def feedback(request):
     form = FeedbackForm()
     return render(request, 'flora/feedback.html', {'form': form} | global_context)
 
-# def feedback(request, feedback_id):
-#     feedback_item = get_object_or_404(Feedback, pk=feedback_id)
-#     try:
-#         selected_choice = feedback_item.choice_set.get(pk=request.POST['choice'])
-#     except (KeyError, Feedback.DoesNotExist):
-#         # Redisplay the question voting form.
-#         return render(request, 'flora/detail.html', {
-#             'question': feedback_item,
-#             'error_message': "You didn't select a choice.",
-#         })
-
-
-# class FeedbackView(generic.DetailView):
-#     model = Feedback
-#     template_name = 'flora/feedback.html'
-
-# def sign_up(request):
-#     if request.method == 'GET':
-#         form = RegisterForm()
-#         return render(request, 'users/register.html', { 'form': form})
 
 def graphics(request):
     return render(request, 'flora/graphics.html', global_context)
