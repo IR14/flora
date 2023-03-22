@@ -4,10 +4,12 @@ from django.urls import reverse
 from django.db.models import F, Count
 from django.views import generic
 from django.utils import timezone
-
+import os
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
+
+#import environ
 
 from roboflow import Roboflow
 from django.http import HttpResponse
@@ -29,7 +31,8 @@ menu_items = {
     "login": "Личный кабинет",
     "graphics": "Инфографика",
     "gallery": "Галерея",
-    "neuron": "Определить растение"
+    "neuron": "Определить растение",
+    "graphics": "Графики и Диаграммы"
 }
 
 global_context = {
@@ -47,10 +50,6 @@ def index(request):
 
 
 def neuron(request):
-    rf = Roboflow(api_key="sAA2PirCW9POEOYvCoWV")
-    project = rf.workspace("pridch-kirpich-xmkm9").project("flora-cm3ry")
-    model = project.version(2).model
-    model.predict("flora/images/TestFlower.png", confidence=40, overlap=30).save("prediction3.jpg")
     return render(request, 'flora/neuron.html', global_context)
 
 
@@ -121,3 +120,6 @@ def feedback(request):
 #     if request.method == 'GET':
 #         form = RegisterForm()
 #         return render(request, 'users/register.html', { 'form': form})
+
+def graphics(request):
+    return render(request, 'flora/graphics.html', global_context)
