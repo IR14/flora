@@ -1,2 +1,4 @@
 venv
 .idea
+flora/__pycache__
+users/__pycache__
