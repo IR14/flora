@@ -27,16 +27,15 @@ menu_items = {
     "bouquets": "Букеты",
     "feedback": "Обратная связь",
     "login": "Личный кабинет",
-    "graphics": "Инфографика",
     "gallery": "Галерея",
 
     "shop": "Магазин",
     "article": "Полезные статьи",
     "test": "Интересные факты",
-    "animation": "animation"
+    "animation": "animation",
 
     "neuron": "Определить растение",
-    "graphics": "Графики и Диаграммы"
+    "graphics": "Графики и Диаграммы",
 }
 
 flower_species = {
@@ -64,8 +63,6 @@ global_context = {
 
 model_path = os.path.join(WORK_DIR, 'model.sav')
 model = pickle.load(open(model_path, 'rb'))
-
-
 
 
 def index(request):
@@ -114,17 +111,8 @@ def street(request):
     return render(request, 'flora/street.html', global_context)
 
 
-
 def test(request):
     return render(request, 'flora/test.html', global_context)
-
-
-
-
-
-
-
-
 
 
 def gallery(request):
