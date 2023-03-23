@@ -23,29 +23,38 @@ WORK_DIR = os.path.join(ROOT_DIR, 'flora')
 menu_items = {
     "index": "Главная",
     "houseplants": "Комнатные растения",
+    "garden": "Декоративные растения",
     "street": "Уличные растения",
     "bouquets": "Букеты",
     "feedback": "Обратная связь",
     "login": "Личный кабинет",
     "gallery": "Галерея",
 
-    "shop": "Магазин",
+    "healplanet": "Эко-проекты",
     "article": "Полезные статьи",
     "test": "Интересные факты",
     "animation": "animation",
 
     "neuron": "Определить растение",
-    "graphics": "Графики и Диаграммы",
+    "graphics": "Инфографика",
 }
 
 flower_species = {
+    'baby pink flower': 'Розы нежные',
+    'blossom': 'Клевер',
     'buddy rose': 'Гомфрена',
+    'fialka': 'Фиалка',
+    'flowers': 'Цветы',
+    'gortenzia': 'Гортензия',
+    'kolokolchick': 'Колокольчик',
     'lily': 'Лилия',
     'parijat': 'Жасмин ночной',
     'pink lily': 'Лилия розовая',
-    'pink rose': 'Роза розовая',
+    'pink rose': 'Роза Розовая',
+    'pion': 'Пион',
     'red rose': 'Роза обыкновенная',
     'red sadaful': 'Катарантус красный',
+    'romashka': 'Ромашка',
     'sunflower': 'Подсолнечник',
     'sunflower mini': 'Подсолнечник карликовый',
     'water flower': 'Лотус',
@@ -53,8 +62,7 @@ flower_species = {
     'white lily': 'Лилия белая',
     'white sadaful': 'Катарантус белый',
     'winter flower': 'Подснежник',
-    'yellow lily': 'Лилия желтая'
-
+    'yellow lily': 'Лилия желтая',
 }
 
 global_context = {
@@ -101,6 +109,10 @@ def neuron(request):
 
 def houseplants(request):
     return render(request, 'flora/houseplants.html', global_context)
+
+
+def garden(request):
+    return render(request, 'flora/garden.html', global_context)
 
 
 def bouquets(request):
