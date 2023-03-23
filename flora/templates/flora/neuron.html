@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <title>FLORA</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'flora/css/main.css' %}">
+    <noscript>
+        <link rel="stylesheet" href="{% static 'flora/css/noscript.css' %}">
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="{% url 'flora:index' %}">FLORALOVELY</a></h1>
+        <!-- Menu -->
+        <nav id="nav">
+            <ul>
+                <li class="special">
+                    <a href="#menu" class="menuToggle"><span>Меню</span></a>
+                    <div id="menu">
+                        {% if menu_list %}
+                            <ul>
+                                {% for k, v in menu_list.items %}
+                                    <li><a href="/{{ k }}">{{ v }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>No menu items are available.</p>
+                        {% endif %}
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <article id="main">
+        <header>
+            <h2>FLORA LOVELY AI</h2>
+            <p>Здесь можно узнать какое растение изображено на фотографии</p>
+        </header>
+
+        <section class="wrapper style5">
+            <div class="inner">
+                <section>
+                    <div>
+                        <h4>Загрузка изображения</h4>
+                    </div>
+
+                    <form action="#prediction" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                        <div class="row gtr-uniform">
+
+                            <div class="col-12">
+                                {{ form.image }}
+                            </div>
+
+                            <div class="col-6">
+                                {% if image %}
+                                    <h5>Успешно загружено</h5>
+                                    <img src="data:image/png;base64, {{ image }}" alt="Image" class="prediction">
+                                    {#                                    <img src="{{ img_obj.image.url }}" alt="connect" style="max-height:300px">#}
+                                {% endif %}
+                            </div>
+
+                            <div class="col-12" id="prediction">
+                                {% if img_class %}
+                                    <p>На изображении распознан вид: <strong>{{ img_class }}</strong></p>
+                                {% else %}
+                                    <p>На изображении не выявлено цветов</p>
+                                {% endif %}
+                            </div>
+
+                            <div class="col-12">
+                                <ul class="actions">
+                                    <li><input type="submit" value="Распознать" class="primary"/></li>
+                                    <li><input type="reset" value="Сбросить"/></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </section>
+    </article>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="copyright">
+            <li>&copy; Покидова Алина</li>
+            <li>Михайлов Илья</li>
+            <li>Сигусов Виталий</li>
+            <li>2022-2023</li>
+        </ul>
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+<script type="text/javascript" src="{% static 'flora/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/jquery.scrollex.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/jquery.scrolly.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/browser.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/breakpoints.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/util.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/main.js' %}"></script>
+
+
+<style>
+    .paragraph {
+        text-align: justify;
+    }
+
+    img[class='prediction'] {
+        max-height: 300px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border: 5px solid orange;
+        position: relative;
+    }
+    {##}
+    {#.prediction {#}
+    {#    border: 0.05em solid red;#}
+    {#    width: 60%;#}
+    {#    display: flex;#}
+    {#    justify-content: center;#}
+    {#}#}
+</style>
+
+</body>
+</html>

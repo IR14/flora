@@ -10,14 +10,14 @@ urlpatterns = [
     path('bouquets/', views.bouquets, name='bouquets'),
     path('street/', views.street, name='street'),
     path('feedback/', views.feedback, name='feedback'),
-    # path('login/', views.registration, name='registration'),
-    # path('graphics/', views.graphics, name='graphics')
-    # path('login/', views.sign_in, name='login'),
-    # path('logout/', views.sign_out, name='logout'),
-    # path('register/', views.sign_up, name='register'),
     path('gallery/', views.gallery, name='gallery'),
+
     path('shop/', views.shop, name='shop'),
     path('article/', views.article, name='article'),
     path('test/', views.test, name='test'),
     path('animation/', views.animation, name='animation')
+
+    path('neuron/', views.neuron, name='neuron'),
+    path('graphics/', views.graphics, name='graphics')
+
 ]
