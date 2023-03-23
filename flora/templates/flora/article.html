@@ -55,12 +55,13 @@
         <img src="{% static 'flora/images/gal14.jpg' %}">
       </figure>
       <div class="article-body">
-        <h2>This is some title</h2>
-        <p>
-          Curabitur convallis ac quam vitae laoreet. Nulla mauris ante, euismod sed lacus sit amet, congue bibendum eros. Etiam mattis lobortis porta. Vestibulum ultrices iaculis enim imperdiet egestas.
+        <h2>окунитесь в мир искусства</h2>
+        <p class="paragraph">
+            Мы подготовили для вас галерею с разнообразными шедеврами искусства на тему цветов. Окунитесь в этот мир прекрасного вместе с нами.
+            Являетесь ли вы любителем искусства или просто цените красоту творчества, мы надеемся, что это слайд-шоу вдохновит и порадует вас.
         </p>
         <a href="../gallery/" class="read-more">
-          Read more <span class="sr-only">about this is some title</span>
+          Продолжить <span class="sr-only">about this is some title</span>
           <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
           </svg>
@@ -75,12 +76,14 @@
         <img src="{% static 'flora/images/gal10.jpg' %}">
       </figure>
       <div class="article-body">
-        <h2>This is some title</h2>
+        <h2>Уход за растениями</h2>
         <p>
-          Curabitur convallis ac quam vitae laoreet. Nulla mauris ante, euismod sed lacus sit amet, congue bibendum eros. Etiam mattis lobortis porta. Vestibulum ultrices iaculis enim imperdiet egestas.
+            Уход за растениями - это важный аспект их выращивания, который поможет им оставаться здоровыми и красивыми
+            на протяжении долгого времени. Во-первых, необходимо выбрать подходящее место для растения, учитывая его
+            потребности в освещении и влажности воздуха.
         </p>
-        <a href="#" class="read-more">
-          Read more <span class="sr-only">about this is some title</span>
+        <a href="../care/" class="read-more">
+          Продолжить <span class="sr-only">about this is some title</span>
           <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
           </svg>
@@ -95,12 +98,13 @@
         <img src="{% static 'flora/images/gal19.jpg' %}">
       </figure>
       <div class="article-body">
-        <h2>This is some title</h2>
+        <h2>Нейронные статьи</h2>
         <p>
-          Curabitur convallis ac quam vitae laoreet. Nulla mauris ante, euismod sed lacus sit amet, congue bibendum eros. Etiam mattis lobortis porta. Vestibulum ultrices iaculis enim imperdiet egestas.
+            Мы создали для вас интересную статью, сгенерированную современной технологией нейронной сети CHAT-GPT. В ней вы можете увидеть,
+            на что способны новейшие технологии по генерации контента.
         </p>
-        <a href="#" class="read-more">
-          Read more <span class="sr-only">about this is some title</span>
+        <a href="../neuroart" class="read-more">
+          Продолжить <span class="sr-only">about this is some title</span>
           <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
           </svg>
@@ -135,6 +139,11 @@
 <script type="text/javascript" src="{% static 'flora/js/main.js' %}"></script>
 
 <style>
+
+    .paragraph {
+        text-align: justify;
+    }
+
 article {
   --img-scale: 1.001;
   --title-color: black;
