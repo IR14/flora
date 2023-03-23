@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <title>FLORA</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'flora/css/main.css' %}">
+    <noscript>
+        <link rel="stylesheet" href="{% static 'flora/css/noscript.css' %}">
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="{% url 'flora:index' %}">FLORALOVELY</a></h1>
+        <!-- Menu -->
+        <nav id="nav">
+            <ul>
+                <li class="special">
+                    <a href="#menu" class="menuToggle"><span>Меню</span></a>
+                    <div id="menu">
+                        {% if menu_list %}
+                            <ul>
+                                {% for k, v in menu_list.items %}
+                                    <li><a href="/{{ k }}">{{ v }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>No menu items are available.</p>
+                        {% endif %}
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <article id="main3">
+        <header>
+            <h2>Калькулятор</h2>
+            <p>расчтитайте стоимость букета</p>
+        </header>
+
+        <section class="wrapper style5">
+            <div class="inner">
+                                <h3>Расчет стоимости букета</h3>
+                <select id="cvet">
+                    <option value="serii">Розы</option>
+                    <option value="geltii">Хризантемы</option>
+                    <option value="goluboi">Пионы</option>
+                </select>
+                <br>
+                <select id="packet">
+                    <option value="wood">Бумажная упаковка</option>
+                    <option value="plastic">Пластиковая упаковка</option>
+                    <option value="korzina">Корзинка</option>
+                </select>
+                <br>
+                <input type="text" id="dlina" value="" placeholder="укажите количество цветов">
+                <br>
+                <button onclick="raschitat();">Рассчитать стоимость</button>
+                <div id="stoimost"></div>
+            </div>
+        </section>
+    </article>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="copyright">
+            <li>&copy; Покидова Алина</li>
+            <li>Михайлов Илья</li>
+            <li>Сигусов Виталий</li>
+            <li>2022-2023</li>
+        </ul>
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+<script type="text/javascript" src="{% static 'flora/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/jquery.scrollex.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/jquery.scrolly.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/browser.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/breakpoints.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/util.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/main.js' %}"></script>
+<script>
+    function raschitat() {
+        cvet = document.getElementById('cvet').value;
+        switch (cvet) {
+            case "serii":
+                cena = 150;
+                break
+            case "goluboi":
+                cena = 100;
+                break
+            case "geltii":
+                cena = 110;
+                break
+            default:
+                cena = 100;
+                break
+        }
+        packet = document.getElementById('packet').value;
+        switch (packet) {
+            case "wood":
+                cena1 = 200;
+                break
+            case "plastic":
+                cena1 = 450;
+                break
+            case "korzina":
+                cena1 = 1000;
+                break
+            default:
+                cena1 = 200;
+                break
+        }
+        dlina = document.getElementById('dlina').value;
+        if (dlina == "") {
+            alert("Вы не указали длину");
+        } else {
+            stoimost = (dlina * cena) + cena1;
+            document.getElementById('stoimost').innerHTML = "Стоимость равна: " + stoimost + " р.";
+        }
+    }
+</script>
+
+<style>
+    .paragraph {
+        text-align: justify;
+    }
+</style>
+
+</body>
+</html>

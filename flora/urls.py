@@ -18,5 +18,8 @@ urlpatterns = [
     path('animation/', views.animation, name='animation'),
 
     path('neuron/', views.neuron, name='neuron'),
-    path('graphics/', views.graphics, name='graphics')
+    path('graphics/', views.graphics, name='graphics'),
+    path('care/', views.care, name='care'),
+    path('neuroart/', views.neuroart, name='neuroart'),
+    path('calculator/', views.calculator, name='calculator')
 ]
