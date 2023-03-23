@@ -1,29 +1,21 @@
 import os
 import pickle
 import json
+import io
 import base64
 
-from PIL import Image
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+import random
+import numpy as np
 
-from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render
-from django.urls import reverse
-from django.db.models import F, Count
-from django.views import generic
 from django.utils import timezone
-
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from django.contrib.auth import login, authenticate, logout
-
-from django.http import HttpResponse
-from django.template import loader
-
-from .models import Feedback
-
 from django.shortcuts import render
 
+from .models import Feedback
 from .forms import FeedbackForm, RecognitionForm
+
+mpl.use('svg')
 
 ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
 WORK_DIR = os.path.join(ROOT_DIR, 'flora')
@@ -62,7 +54,6 @@ flower_species = {
 global_context = {
     "menu_list": menu_items
 }
-
 
 model_path = os.path.join(WORK_DIR, 'model.sav')
 model = pickle.load(open(model_path, 'rb'))
@@ -147,5 +138,64 @@ def feedback(request):
     return render(request, 'flora/feedback.html', {'form': form} | global_context)
 
 
+def fig_to_base64(fig):
+    img = io.BytesIO()
+    fig.savefig(img, format='png', bbox_inches='tight')
+    img.seek(0)
+
+    return base64.b64encode(img.getvalue())
+
+
 def graphics(request):
-    return render(request, 'flora/graphics.html', global_context)
+    names = ['Орхидея', 'Фиалка', 'Фикус', 'Антриум',
+             'Замиокулькас', 'Гортезия', 'Монстера',
+             'Кактус', 'Алоэ', 'Пеларгония']
+
+    values = [1065.0, 170.0, 1000.0, 550.0, 960.0, 620.0, 1660.0, 400.0, 280.0, 470.0]
+    # values2 = [0.64, 0.48, 0.48, 0.43, 0.40, 0.36, 0.35, 0.32, 0.31, 0.31]
+    n = len(names)
+
+    plt.figure(figsize=(16, 9), dpi=80)
+    all_colors = list(plt.cm.colors.cnames.keys())
+    random.seed(100)
+    c = random.choices(all_colors, k=n)
+
+    plt.bar(names, values, width=0.3, color=c)
+
+    for i, val in enumerate(zip(values, names)):
+        plt.text(i, val[0], val[0],
+                 horizontalalignment='center',
+                 verticalalignment='bottom',
+                 fontdict={'fontweight': 500, 'size': 13})
+
+    plt.gca().set_xticklabels(names, rotation=45, horizontalalignment='right', fontdict={'size': 13})
+
+    # X/Y label Settings
+    plt.ylabel('Sales (RUB ₽)', fontsize=17)
+    plt.yticks(fontsize=13, alpha=.7)
+    plt.title("Flowers' prices", fontsize=17)
+    plt.grid(axis='y', alpha=.3)
+
+    plt.gca().spines["top"].set_alpha(0.0)
+    plt.gca().spines["bottom"].set_alpha(0.5)
+    plt.gca().spines["right"].set_alpha(0.0)
+    plt.gca().spines["left"].set_alpha(0.5)
+
+    # fig = plt.figure()
+
+    # fig = plt.savefig()
+    # imgdata = StringIO()
+    # fig.savefig(imgdata, format='svg')
+    # imgdata.seek(0)
+    # data = imgdata.getvalue()
+
+    # data = fig_to_base64(fig)
+
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png', dpi=80)
+    image_base64 = base64.b64encode(buf.getvalue()).decode('utf-8').replace('\n', '')
+    buf.close()
+
+    plt.close()
+
+    return render(request, 'flora/graphics.html', {'graph': image_base64} | global_context)
