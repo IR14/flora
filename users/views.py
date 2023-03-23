@@ -3,11 +3,13 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from .forms import LoginForm
 
+from flora.views import global_context
+
 
 def sign_in(request):
     if request.method == 'GET':
         form = LoginForm()
-        return render(request, 'users/login.html', {'form': form})
+        return render(request, 'users/login.html', {'form': form} | global_context)
 
     elif request.method == 'POST':
         form = LoginForm(request.POST)
@@ -23,4 +25,4 @@ def sign_in(request):
 
         # form is not valid or user is not authenticated
         messages.error(request, f'Invalid username or password')
-        return render(request, 'users/login.html', {'form': form})
+        return render(request, 'users/login.html', {'form': form} | global_context)
