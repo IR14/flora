@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <title>FLORA</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'flora/css/main.css' %}">
+    <noscript>
+        <link rel="stylesheet" href="{% static 'flora/css/noscript.css' %}">
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="{% url 'flora:index' %}">FLORALOVELY</a></h1>
+        <!-- Menu -->
+        <nav id="nav">
+            <ul>
+                <li class="special">
+                    <a href="#menu" class="menuToggle"><span>Меню</span></a>
+                    <div id="menu">
+                        {% if menu_list %}
+                            <ul>
+                                {% for k, v in menu_list.items %}
+                                    <li><a href="/{{ k }}">{{ v }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>No menu items are available.</p>
+                        {% endif %}
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <article id="main2">
+        <header>
+            <h2>ГАЛЕРЕЯ</h2>
+        </header>
+
+        <section class="wrapper style5">
+
+        </section>
+
+    </article>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="copyright">
+            <li>&copy; Покидова Алина</li>
+            <li>Михайлов Илья</li>
+            <li>Сигусов Виталий</li>
+            <li>2022-2023</li>
+        </ul>
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+<script type="text/javascript" src="{% static 'flora/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/jquery.scrollex.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/jquery.scrolly.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/browser.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/breakpoints.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/util.js' %}"></script>
+<script type="text/javascript" src="{% static 'flora/js/main.js' %}"></script>
+
+<style type="text/scss">
+
+</style>
+
+</body>
+</html>

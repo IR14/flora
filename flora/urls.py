@@ -11,6 +11,13 @@ urlpatterns = [
     path('street/', views.street, name='street'),
     path('feedback/', views.feedback, name='feedback'),
     path('gallery/', views.gallery, name='gallery'),
+
+    path('shop/', views.shop, name='shop'),
+    path('article/', views.article, name='article'),
+    path('test/', views.test, name='test'),
+    path('animation/', views.animation, name='animation')
+
     path('neuron/', views.neuron, name='neuron'),
     path('graphics/', views.graphics, name='graphics')
+
 ]

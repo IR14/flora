@@ -37,6 +37,12 @@ menu_items = {
     "login": "Личный кабинет",
     "graphics": "Инфографика",
     "gallery": "Галерея",
+
+    "shop": "Магазин",
+    "article": "Полезные статьи",
+    "test": "Интересные факты",
+    "animation": "animation"
+
     "neuron": "Определить растение",
     "graphics": "Графики и Диаграммы"
 }
@@ -57,6 +63,7 @@ flower_species = {
     'white sadaful': 'Катарантус белый',
     'winter flower': 'Подснежник',
     'yellow lily': 'Лилия желтая'
+
 }
 
 global_context = {
@@ -68,9 +75,6 @@ model_path = os.path.join(WORK_DIR, 'model.sav')
 model = pickle.load(open(model_path, 'rb'))
 
 
-# class FeedbackView(generic.ListView):
-#     model = Feedback
-#     template_name = 'flora/feedback.html'
 
 
 def index(request):
@@ -119,12 +123,33 @@ def street(request):
     return render(request, 'flora/street.html', global_context)
 
 
-def graphics(request):
-    return render(request, 'flora/graphics.html', global_context)
+
+def test(request):
+    return render(request, 'flora/test.html', global_context)
+
+
+
+
+
+
+
+
 
 
 def gallery(request):
     return render(request, 'flora/gallery.html', global_context)
+
+
+def shop(request):
+    return render(request, 'flora/shop.html', global_context)
+
+
+def article(request):
+    return render(request, 'flora/article.html', global_context)
+
+
+def animation(request):
+    return render(request, 'flora/animation.html', global_context)
 
 
 def feedback(request):
