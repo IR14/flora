@@ -36,6 +36,9 @@ menu_items = {
 
     "neuron": "Определить растение",
     "graphics": "Графики и Диаграммы",
+    "care": "Уход за растениями",
+    "neuroart": "Нейронные статьи",
+    "calculator": "Необычный калькулятор"
 }
 
 flower_species = {
@@ -129,6 +132,18 @@ def article(request):
 
 def animation(request):
     return render(request, 'flora/animation.html', global_context)
+
+
+def care(request):
+    return render(request, 'flora/care.html', global_context)
+
+
+def neuroart(request):
+    return render(request, 'flora/neuroart.html', global_context)
+
+
+def calculator(request):
+    return render(request, 'flora/calculator.html', global_context)
 
 
 def feedback(request):
